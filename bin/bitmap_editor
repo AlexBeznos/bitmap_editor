@@ -1,58 +1,7 @@
 #!/usr/bin/env ruby
-$:.unshift('./lib')
+$LOAD_PATH.unshift('./lib')
 
 require 'bundler/setup'
 require './lib/builder'
 
 Bitmap::Builder.new(ARGV.first).build!
-
-# require "benchmark/ips"
-# require 'benchmark-memory'
-
-# class B
-#   def speed
-#     Benchmark.ips do |x|
-#       x.report("read + each_line") do
-#         File.read(path).each_line { |line| line.chars.count }
-#       end
-#       x.report("open + each_line") do
-#         File.open(path, "r").each_line { |line| line.chars.count }
-#       end
-#       x.report("open + readlines") do
-#         File.open(path, "r").readlines.each { |line| line.chars.count }
-#       end
-#       x.report("foreach") do
-#         File.foreach(path) { |line| line.chars.count }
-#       end
-
-#       x.compare!
-#     end
-#   end
-
-#   def memory
-#     Benchmark.memory do |x|
-#       x.report("read + each_line") do
-#         File.read(path).each_line { |line| line.chars.count }
-#       end
-#       x.report("open + each_line") do
-#         File.open(path, "r").each_line { |line| line.chars.count }
-#       end
-#       x.report("open + readlines") do
-#         File.open(path, "r").readlines.each { |line| line.chars.count }
-#       end
-#       x.report("foreach") do
-#         File.foreach(path) { |line| line.chars.count }
-#       end
-
-#       x.compare!
-#     end  
-#   end
-
-#   def path
-#     'examples/show.txt'
-#   end
-# end
-
-# b = B.new
-# b.speed
-# b.memory

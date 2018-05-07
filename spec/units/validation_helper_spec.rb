@@ -20,12 +20,12 @@ RSpec.describe Bitmap::ValidationHelper do
       end
 
       it do
-        expect {
+        expect do
           subject.command_executable?(
             [Bitmap::Commands::Clear, Bitmap::Commands::CreateArea], 
             current_command
           )
-        }.to raise_error(Bitmap::Errors::InvalidArguments)
+        end.to raise_error(Bitmap::Errors::InvalidArguments)
       end
     end
 
@@ -62,11 +62,11 @@ RSpec.describe Bitmap::ValidationHelper do
 
   describe '#eq?' do
     it 'returns nil when values equal' do
-      expect(subject.eq?(1,1)).to be_nil
+      expect(subject.eq?(1, 1)).to be_nil
     end
 
     it 'raise InvalidArguments when not equal' do
-      expect { subject.eq?(1,2) }.to raise_error(Bitmap::Errors::InvalidArguments)
+      expect { subject.eq?(1, 2) }.to raise_error(Bitmap::Errors::InvalidArguments)
     end
   end
 
@@ -84,11 +84,11 @@ RSpec.describe Bitmap::ValidationHelper do
 
   describe '#each_number_in_range?' do
     it 'return nil when each number belongs to range' do
-      expect(subject.each_number_in_range?(['1','2','3'], 1..3)).to be_nil
+      expect(subject.each_number_in_range?(['1', '2', '3'], 1..3)).to be_nil
     end
 
     it 'raise InvalidArguments when some of numbers not belongs to range' do
-      expect { subject.each_number_in_range?(['1','5','3'], 1..3) }.to(
+      expect { subject.each_number_in_range?(['1', '5', '3'], 1..3) }.to(
         raise_error(Bitmap::Errors::InvalidArguments)
       )
     end

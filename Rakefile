@@ -11,6 +11,6 @@ task :spec do
     puts "Specs for #{folder} folder"
     puts '-' * 100
 
-    sh "bundle exec rspec #{pattern}" 
+    sh "bundle exec rspec #{pattern}"
   end
 end

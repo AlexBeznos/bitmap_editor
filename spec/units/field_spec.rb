@@ -16,15 +16,15 @@ RSpec.describe Bitmap::Field do
     context 'when area empty' do
       let(:expected_params) do
         {
-          area:        Array.new,
-          commands:    Array.new,
+          area:        [],
+          commands:    [],
           rows_count:  0,
           cells_count: 0
         }
       end
-      let(:push_into_area) do 
+      let(:push_into_area) do
         lambda do |pr|
-          pr[:area].push(*[[1,1,1], [1,1]])
+          pr[:area].push([1, 1, 1], [1, 1])
         end
       end
 
@@ -41,16 +41,16 @@ RSpec.describe Bitmap::Field do
 
         expect { subject.persist!(fake_command, &push_into_area) }
           .to(
-              raise_error(
-                Bitmap::Errors::AreaInconsistent,
-                "executions of some of this commands have led to area inconsistency #{fake_command_class}"
-              )
+            raise_error(
+              Bitmap::Errors::AreaInconsistent,
+              "executions of some of this commands have led to area inconsistency #{fake_command_class}"
             )
+          )
       end
     end
 
     context 'when area already changed' do
-      let(:expected_area) { [[1,2,3], [4,5,6]] }
+      let(:expected_area) { [[1, 2, 3], [4, 5, 6]] }
 
       it 'push into block correct params' do
         subject.persist!(fake_command) do |params|
@@ -60,9 +60,9 @@ RSpec.describe Bitmap::Field do
         subject.persist!(fake_command) do |params|
           expect(params).to(
             eq(
-              area: expected_area, 
-              commands: [fake_command_class],
-              rows_count: 2,
+              area:        expected_area, 
+              commands:    [fake_command_class],
+              rows_count:  2,
               cells_count: 3 
             )
           )

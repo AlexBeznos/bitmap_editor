@@ -21,7 +21,7 @@ module Bitmap
     private
 
     def validate_path!(path)
-      raise Errors::InvalidFilePath unless File.exists?(path)
+      raise Errors::InvalidFilePath unless File.exist?(path)
     end
   end
 end

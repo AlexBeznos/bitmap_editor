@@ -26,7 +26,7 @@ module Bitmap
         x, y1, y2 = *prepare_coordinates(args.slice(0, 3))
         
         (y1..y2).each do |y|
-          field_params[:area][y-1][x-1] = color
+          field_params[:area][y - 1][x - 1] = color
         end
       end
     end

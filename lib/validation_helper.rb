@@ -28,7 +28,7 @@ module Bitmap
     end
 
     def number?(arg)
-      return if /\A\d+\z/.match(arg)
+      return if arg =~ /\A\d+\z/
       raise_invalid_arguments
     end
 
@@ -43,7 +43,7 @@ module Bitmap
     end
 
     def upcase_letter?(string)
-      return if /[A-Z]/.match(string) && string.length == 1
+      return if string =~ /[A-Z]/ && string.length == 1
       raise_invalid_arguments
     end
 

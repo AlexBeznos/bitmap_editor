@@ -5,7 +5,7 @@ module Bitmap
     attr_reader :commands
     
     def initialize
-      @commands, @area = Array.new, Array.new
+      @commands, @area = [], []
     end
 
     def persist!(command)

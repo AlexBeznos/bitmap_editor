@@ -18,17 +18,17 @@ RSpec.describe Bitmap::CommandExecutor do
       )
       allow(command).to(
         receive(:validate!)
-          .with(*[field_params, command_params])
+          .with(field_params, command_params)
       )
       allow(command).to(
         receive(:execute!)
-          .with(*[field_params, command_params])
+          .with(field_params, command_params)
       )
 
       executor.('I', *command_params)
 
-      expect(command).to have_received(:validate!).with(*[field_params, command_params])
-      expect(command).to have_received(:execute!).with(*[field_params, command_params])
+      expect(command).to have_received(:validate!).with(field_params, command_params)
+      expect(command).to have_received(:execute!).with(field_params, command_params)
     end
   end
   

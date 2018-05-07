@@ -10,7 +10,7 @@ module Bitmap
         end
       end
 
-      def execute!(field_params, _)
+      def execute!(field_params, *)
         field_params[:area].each do |row|
           puts row.join
         end
