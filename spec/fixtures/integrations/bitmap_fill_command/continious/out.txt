@@ -1,3 +1,3 @@
-R R O
-R T O
-R O O
+RRO
+RTO
+ROO
