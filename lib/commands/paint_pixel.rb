@@ -24,7 +24,7 @@ module Bitmap
         color = args.last
         x, y = *prepare_coordinates(args.slice(0, 2))
 
-        field_params[:area][y - 1][x - 1] = color.to_sym
+        field_params[:area][y - 1][x - 1] = color
       end
     end
   end

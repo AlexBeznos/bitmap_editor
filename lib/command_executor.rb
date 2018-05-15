@@ -13,6 +13,7 @@ module Bitmap
         'L' => Commands::PaintPixel,
         'V' => Commands::PaintVertical,
         'H' => Commands::PaintHorizontal,
+        'F' => Commands::PaintArea,
         'S' => Commands::Show
       }
     end
