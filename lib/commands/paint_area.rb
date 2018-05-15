@@ -22,16 +22,14 @@ module Bitmap
       def execute!(field_params, args)
         color = args.last
         x, y = *prepare_coordinates(args.slice(0, 2))
-
+        
         x -= 1
         y -= 1
         
-        current_color = field_params[:area][y][x]
-
         paint(
           x:             x,
           y:             y,
-          current_color: current_color,
+          current_color: field_params[:area][x][y],
           color:         color,
           field_params:  field_params
         )
@@ -53,12 +51,13 @@ module Bitmap
       end
 
       def args_suited?(x:, y:, field_params:, current_color:, **)
-        belongs_to_area?(x, y, field_params) && field_params[:area][y][x] == current_color
+        belongs_to_area?(x, y, field_params) &&
+          field_params[:area][y][x] == current_color
       end
 
       def belongs_to_area?(x, y, field_params)
-        (0..field_params[:cells_count]).cover?(x) &&
-          (0..field_params[:rows_count]).cover?(y)
+        (0..(field_params[:cells_count] - 1)).cover?(x) &&
+          (0..(field_params[:rows_count] - 1)).cover?(y)
       end
     end
   end

@@ -9,7 +9,7 @@ RSpec.describe 'Bitmap creation' do
 
   describe 'basic' do
     let(:test_name) { 'basic' }
-    
+      
     it 'return correct output' do
       expect { execute }.to output(out).to_stdout
     end

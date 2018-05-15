@@ -15,6 +15,14 @@ RSpec.describe 'Bitmap creation' do
     end
   end
 
+  describe 'one-o-one' do
+    let(:test_name) { 'one-o-one' }
+    
+    it 'return correct output' do
+      expect { execute }.to output(out).to_stdout
+    end
+  end
+
   describe 'blocking' do
     let(:test_name) { 'blocking' }
     
@@ -41,6 +49,14 @@ RSpec.describe 'Bitmap creation' do
 
   describe 'non-continious' do
     let(:test_name) { 'non-continious' }
+    
+    it 'return correct output' do
+      expect { execute }.to output(out).to_stdout
+    end
+  end
+
+  describe 'large' do
+    let(:test_name) { 'large' }
     
     it 'return correct output' do
       expect { execute }.to output(out).to_stdout
